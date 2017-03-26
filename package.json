@@ -1,0 +1,23 @@
+{
+  "name": "mcjs",
+  "version": "1.0.0",
+  "description": "Monte Carlo simulation of ellipses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougmet/mcjs.git"
+  },
+  "keywords": [
+    "monte",
+    "carlo"
+  ],
+  "author": "Doug Ashton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dougmet/mcjs/issues"
+  },
+  "homepage": "https://github.com/dougmet/mcjs#readme"
+}

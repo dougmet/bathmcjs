@@ -1,0 +1,9 @@
+/coverage
+/custom
+/dist
+/node_modules
+.DS_Store
+.vscode
+bower.json
+*.log
+*.swp
