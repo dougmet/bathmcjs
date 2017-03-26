@@ -2,7 +2,7 @@
   "name": "bathmcjs",
   "version": "1.0.0",
   "description": "JS port of bathmc library for simulating disks",
-  "main": "index.js",
+  "main": "src/bathmc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
