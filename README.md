@@ -1,2 +1,3 @@
 # mcjs
-Some particle Monte Carlo in JS
+
+> Nothing to see here. Move along 🙈
