@@ -1,7 +1,7 @@
 {
-  "name": "mcjs",
+  "name": "bathmcjs",
   "version": "1.0.0",
-  "description": "Monte Carlo simulation of ellipses",
+  "description": "JS port of bathmc library for simulating disks",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
