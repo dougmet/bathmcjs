@@ -1,3 +1,6 @@
+/**
+ * @namespace Bathmc
+ */
 
 var Bathmc = require('./bathmc.js')();
 
@@ -6,4 +9,6 @@ if (typeof window !== 'undefined') {
 	window.Bathmc = Bathmc;
 }
 
-console.log(Bathmc);
+//myBath = new Bathmc({item: 1, config: 2});
+
+console.log(Bathmc)
