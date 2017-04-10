@@ -3,7 +3,7 @@
     'use strict';
     function Bathmc() {
         // Core controller
-        // This class creates boxes (and bath's, or is it the bath?) and runs the show
+        // This class creates baths and runs the show
         var Bathmc = {
             defaults: {
               doug: 1,
