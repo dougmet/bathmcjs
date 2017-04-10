@@ -1,24 +1,21 @@
+'use strict';
 
-(function(window){
-    'use strict';
-    function Bathmc() {
-        // Core controller
-        // This class creates baths and runs the show
-        var Bathmc = {
-            defaults: {
-              doug: 1,
-              ashton: 2
-            }
-        }
+module.exports = function() {
 
-        return Bathmc;
-    };
+	// Occupy the global variable of Bathmc, and create a simple base class
+	var Bathmc = function(item, config) {
+		this.construct(item, config);
+		return this;
+	};
 
-    //define globally if it doesn't already exist
-    if(typeof(window.Bathmc) === 'undefined'){
-        window.Bathmc = Bathmc();
-    }
-    else{
-        console.log("Bathmc already defined.");
-    }
-})(window);
+	// Globally expose the defaults to allow for user updating/changing
+	Bathmc.defaults = {
+		global: {
+			a: 1
+			}
+	};
+
+	Bathmc.Bathmc = Bathmc;
+
+	return Bathmc;
+};
