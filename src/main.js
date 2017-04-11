@@ -9,6 +9,6 @@ if (typeof window !== 'undefined') {
 	window.Bath = Bath;
 }
 
-myBath = new Bath({doug: 2});
+myBath = new Bath(null, {doug: 2});
 
 myBath.doug()
