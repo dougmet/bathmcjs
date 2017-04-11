@@ -2,20 +2,26 @@
 
 module.exports = function() {
 
-	// Occupy the global variable of Bath, and create a simple base class
-	var Bath = function(item, config) {
-		//this.construct(config);
-		this.config = config;
+  var Box = require('./box.js')();
 
-		this.doug = function() {console.log(config)};
-		return this;
+  // Occupy the global variable of Bath, and create a simple base class
+	var Bath = function(item, config) {
+		
+    var self = this;
+
+		self.config = config;
+
+    self.box = new Box(this, config);
+
+    self.defaults = Bath.defaults;
+
+		self.doug = function() {console.log(self)};
+		return self;
 	};
 
 	// Globally expose the defaults to allow for user updating/changing
 	Bath.defaults = {
-		global: {
-			a: 1
-			}
+		a: 1
 	};
 
 	Bath.Bath = Bath;

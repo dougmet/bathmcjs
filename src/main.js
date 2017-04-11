@@ -11,4 +11,4 @@ if (typeof window !== 'undefined') {
 
 myBath = new Bath(null, {doug: 2});
 
-myBath.doug()
+myBath.box.bath.doug()
