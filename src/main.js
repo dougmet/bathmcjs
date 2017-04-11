@@ -1,14 +1,14 @@
 /**
- * @namespace Bathmc
+ * @namespace Bath
  */
 
-var Bathmc = require('./bathmc.js')();
+var Bath = require('./Bath.js')();
 
-module.exports = Bathmc;
+module.exports = Bath;
 if (typeof window !== 'undefined') {
-	window.Bathmc = Bathmc;
+	window.Bath = Bath;
 }
 
-//myBath = new Bathmc({item: 1, config: 2});
+myBath = new Bath({doug: 2});
 
-console.log(Bathmc)
+myBath.doug()

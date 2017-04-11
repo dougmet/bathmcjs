@@ -1,10 +1,24 @@
 'use strict';
 
-// Sure this isn't how you do this?
+module.exports = function() {
 
-module.exports = function(Bathmc, config) {
+	// Occupy the global variable of Bath, and create a simple base class
+	var Bath = function(item, config) {
+		//this.construct(config);
+		this.config = config;
 
-  var bath = {
-      a: 1
-  }
-}
+		this.doug = function() {console.log(config)};
+		return this;
+	};
+
+	// Globally expose the defaults to allow for user updating/changing
+	Bath.defaults = {
+		global: {
+			a: 1
+			}
+	};
+
+	Bath.Bath = Bath;
+
+	return Bath;
+};
