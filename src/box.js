@@ -8,11 +8,15 @@ module.exports = function() {
 
         self.bath = bath;
 		self.config = config;
-
-        self.shout = function() {console.log("ARRGH!")};
+        self.config.ashton = 2;
 
 		return self;
 	};
+
+    Box.prototype = {
+        shout: function() {console.log("ARRGH!")},
+        printconfig: function() {console.log(this.config)}
+    }
 
 	return Box;
 }
