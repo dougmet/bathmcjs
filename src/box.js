@@ -3,14 +3,12 @@
 module.exports = function() {
   
 	var Box = function(bath, config) {
-		
-        var self = this;
 
-        self.bath = bath;
-		self.config = config;
-        self.config.ashton = 2;
+        this.bath = bath;
+		this.config = config;
+        this.config.ashton = 2;
 
-		return self;
+		return this;
 	};
 
     Box.prototype = {

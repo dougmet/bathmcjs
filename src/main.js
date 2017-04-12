@@ -11,4 +11,4 @@ if (typeof window !== 'undefined') {
 
 myBath = new Bath(null, {doug: 2});
 
-myBath.box.printconfig()
+console.log(myBath.defaults.boxes.L)
