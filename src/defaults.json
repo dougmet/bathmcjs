@@ -2,9 +2,9 @@
 	"DIM": 3,
     "NSPEC": 1,
     "T": 1,
-    "boxes": {
+    "boxes": [{
         "L": [10, 10, 10],
         "wall": [false, false, false]
-    },
-    "particles": [false] 
+    }],
+    "particles": [] 
 }

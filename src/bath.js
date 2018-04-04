@@ -28,10 +28,9 @@ module.exports = function() {
     // Occupy the global variable of Bath, and create a simple base class
     var Bath = function(config) {
       
-      // Start with defaults and overwrite with config
+        // Start with defaults and overwrite with config
         this.config = merge_objects(defaults, config);
-      
-        this.box = new Box(this, this.config);
+        this.boxes = this.config.boxes.map(x => new Box(x, this));
       
         return this;
     };

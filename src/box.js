@@ -2,7 +2,7 @@
 
 module.exports = function() {
   
-	var Box = function(bath, config) {
+	var Box = function(config, bath) {
 
         this.bath = bath;
 		this.config = config;
