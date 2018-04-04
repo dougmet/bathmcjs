@@ -6,7 +6,6 @@ module.exports = function() {
 
         this.bath = bath;
 		this.config = config;
-        this.config.ashton = 2;
 
 		return this;
 	};
