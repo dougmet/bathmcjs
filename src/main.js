@@ -9,6 +9,6 @@ if (typeof window !== 'undefined') {
 	window.Bath = Bath;
 }
 
-myBath = new Bath();
+myBath = new Bath({'boxes': [{'L': [3,4,5]}]});
 
-console.log(myBath.config)
+console.log(myBath)

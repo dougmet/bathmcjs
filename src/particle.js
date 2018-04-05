@@ -9,7 +9,7 @@ module.exports = function() {
         this.n = [[1,0,0], [0,1,0], [0,0,1]];
         this.cell = null;
 		this.box = null;
-		this.pos_part = -1;               // position in the bath particle list
+		this.pos_part = -1;    // position in the bath particle list
         
 		this.up = null;        // The cell linked lists
 		this.down = null;

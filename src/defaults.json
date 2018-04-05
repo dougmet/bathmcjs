@@ -3,8 +3,7 @@
     "NSPEC": 1,
     "T": 1,
     "boxes": [{
-        "L": [10, 10, 10],
-        "wall": [false, false, false]
+        "L": [5, 5, 5]
     }],
     "particles": [] 
 }
