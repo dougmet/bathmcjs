@@ -1,3 +1,8 @@
+// Hacky deep copy
+function dc(x) {
+    return JSON.parse(JSON.stringify(x));
+}
+
 function merge_objects(obj1,obj2)
 {
     if (!obj2) return obj1;
@@ -9,7 +14,7 @@ function merge_objects(obj1,obj2)
                 typeof(obj1[key]) == 'object') {
                 result[key] = merge_objects(obj1[key], obj2[key]);
             }  else {
-                result[key] = obj2[key];
+                result[key] = dc(obj2[key]);
             }
         }
     }
@@ -17,6 +22,7 @@ function merge_objects(obj1,obj2)
 }
 
 exports.merge_objects = merge_objects;
+exports.dc = dc;
 
 exports.assert = function (condition, message) {
     // *cough* SO
@@ -28,3 +34,4 @@ exports.assert = function (condition, message) {
         throw message; // Fallback
     }
 }
+

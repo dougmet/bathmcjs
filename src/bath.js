@@ -12,8 +12,8 @@ module.exports = function() {
       
         // Start with defaults and overwrite with config
         this.config = Utils.merge_objects(defaults, config);
-        this.DIM = this.config.DIM;
-        this.T = this.config.T;
+        this.DIM = Utils.dc(this.config.DIM);
+        this.T = Utils.dc(this.config.T);
         this.boxes = this.config.boxes.map(x => new Box(x, this));
       
         return this;

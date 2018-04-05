@@ -12,7 +12,10 @@ module.exports = function() {
         
         this.check_config(this, bath);
 
-        this.printconfig();
+        this.L = Utils.dc(this.config.L);
+        this.wall = Utils.dc(this.config.wall);
+
+        this.printme();
 
 		return this;
     };
@@ -22,7 +25,8 @@ module.exports = function() {
             Utils.assert(this.config.L.length == this.bath.DIM,
                 "bath.DIM must match box dimensions");
         },
-        printconfig: function() {console.log(this.config)}
+        printconfig: function() {console.log(this.config)},
+        printme: function() {console.log({'L': this.L, 'wall': this.wall})}
     }
 
 	return Box;
