@@ -24,6 +24,14 @@ function merge_objects(obj1,obj2)
 exports.merge_objects = merge_objects;
 exports.dc = dc;
 
+exports.range = function(N) {
+    if(N<=0) {
+        return [];
+    } else {
+        return Array(N).fill(null).map((x, index) => index);
+    }
+}
+
 exports.assert = function (condition, message) {
     // *cough* SO
     if (!condition) {

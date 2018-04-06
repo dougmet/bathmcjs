@@ -10,11 +10,13 @@
     "particle": [{
         "name": "A",
         "N": 100,
-        "cell_group": 0
+        "cell_group": 0,
+        "Naxes": 2
     },
     {
         "name": "B",
         "N": 50,
-        "cell_group": 1
+        "cell_group": 1,
+        "Naxes": 1
     }]
 }

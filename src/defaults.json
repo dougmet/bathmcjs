@@ -13,6 +13,7 @@
     "particle": {
         "name": "A",
         "N": 100,
-        "cell_group": 0
+        "cell_group": 0,
+        "Naxes": 0
     }
 }

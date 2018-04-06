@@ -3,7 +3,6 @@
 module.exports = function() {
     
     var Box = require('./box.js')();
-    var Particle = require('./particle.js')();
     var Species = require('./species.js')();
     var Utils = require('./utils.js');
     var defaults  = require('./defaults.json');
@@ -16,8 +15,8 @@ module.exports = function() {
         this.DIM = Utils.dc(this.config.DIM);
         this.T = Utils.dc(this.config.T);
         this.box = full_config.box.map(x => new Box(x, this));
-        this.species = full_config.particle.map(x => new Species(x, this));
-        //this.particle = this.config.particles.map(x => new Particle(x, this));
+        this.species = full_config.particle.map((x, index) => new Species(x, index, this));
+        this.particle = this.species.map(spec => spec.create_particles());
       
         return this;
     };
