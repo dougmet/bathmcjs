@@ -1,9 +1,18 @@
 {
-	"DIM": 3,
-    "NSPEC": 1,
-    "T": 1,
-    "boxes": [{
-        "L": [5, 5, 5]
-    }],
-    "particles": [] 
+    "bath": {
+    	"DIM": 3,
+        "NSPEC": 1,
+        "T": 1
+    },
+
+    "box": {
+        "L": [10, 10, 10],
+        "wall": [false, false, false]
+    },
+
+    "particle": {
+        "name": "A",
+        "N": 100,
+        "cell_group": 0
+    }
 }

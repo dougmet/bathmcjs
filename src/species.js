@@ -3,27 +3,33 @@
 module.exports = function() {
     
     var Utils = require('./utils.js');
+    var defaults  = require('./defaults.json');
 
 	var Species = function(config, bath) {
 
         this.bath = bath;
-        this.config = Utils.merge_objects(defaults, config);
+        this.config = Utils.merge_objects(defaults.particle, config);
         
         this.check_config(this, bath);
 
-        this.cellgroup = 0; // or a pointer?
+        this.name = Utils.dc(this.config.name);
+        this.cell_group = Utils.dc(this.config.cell_group);
+        this.N = Utils.dc(this.config.N);
 
-        this.printconfig();
+        this.printme();
 
 		return this;
     };
 
     Species.prototype = {
         check_config: function() {
-            Utils.assert(this.config.L.length == this.bath.DIM,
-                "bath.DIM must match box dimensions");
+            // Utils.assert(something == something_else);
         },
-        printconfig: function() {console.log(this.config)}
+        printme: function() {console.log({
+            "name": this.name,
+            "N": this.N,
+            "cell_group": this.cell_group})
+        }
     }
 
 	return Species;

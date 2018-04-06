@@ -2,14 +2,15 @@
  * @namespace Bath
  */
 
-var Bath = require('./Bath.js')();
+var Bath = require('../src/Bath.js')();
 
 module.exports = Bath;
 if (typeof window !== 'undefined') {
 	window.Bath = Bath;
 }
 
-config = require('./defaults.json');
+config = require('./test-config.json');
 
 myBath = new Bath(config);
 
+console.log(myBath)

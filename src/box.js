@@ -3,12 +3,12 @@
 module.exports = function() {
     
     var Utils = require('./utils.js');
-    var defaults  = require('./defaults_box.json');
+    var defaults  = require('./defaults.json');
 
 	var Box = function(config, bath) {
 
         this.bath = bath;
-        this.config = Utils.merge_objects(defaults, config);
+        this.config = Utils.merge_objects(defaults.box, config);
         
         this.check_config(this, bath);
 
