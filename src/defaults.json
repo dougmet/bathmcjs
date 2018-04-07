@@ -15,5 +15,14 @@
         "N": 100,
         "cell_group": 0,
         "Naxes": 0
+    },
+
+    "potential": {
+        "name": "LJ",
+        "spec1": 0,
+        "spec2": 0,
+        "sigma": 1,
+        "eps": 1,
+        "rcut": 2.5
     }
 }

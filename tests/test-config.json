@@ -18,5 +18,24 @@
         "N": 50,
         "cell_group": 1,
         "Naxes": 1
+    }],
+
+    "potential": [{
+        "type": "HS",
+        "species_1": 0,
+        "species_2": 0,
+        "rcut": 1
+    },
+    {
+        "type": "HS",
+        "species_1": 0,
+        "species_2": 1,
+        "rcut": 1
+    },
+    {
+        "type": "HS",
+        "species_1": 1,
+        "species_2": 1,
+        "rcut": 1
     }]
 }
