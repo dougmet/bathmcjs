@@ -10,8 +10,11 @@ module.exports = function() {
         this.bath = bath;
         this.DIM = bath.DIM;
         this.overlap = false;
-
-        HERE HERE HERE 
+        
+        // Create a 2D array to hold the potentials
+        var all_spec = Utils.range(bath.species.length);
+        this.pot = all_spec.map(function() {return all_spec});
+        
 
 		return this;
 	};
@@ -24,10 +27,10 @@ module.exports = function() {
             s1 = p1.species;
             s2 = p2.species;
             
-            double r2 = box.PBCsubtract(dr, p2.r, p1.r); // vec from p1->p2
+            var r2 = box.PBCsubtract(dr, p2.r, p1.r); // vec from p1->p2
             this.overlap=false;
             
-            if (r2 < this.pot[s1][s2]->cutoff2) {
+            if (r2 < this.pot[s1][s2].rcut2) {
                 // The general potential call (send in overlap as a reference)
                 // JS TODO - may need to just pass in this instead
                 return(this.pot[s1][s2].pair_pot(this.overlap, r2, dr, p1, p2));

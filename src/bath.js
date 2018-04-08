@@ -4,6 +4,7 @@ module.exports = function() {
     
     var Box = require('./box.js')();
     var Species = require('./species.js')();
+    var Potential = require('./potential.js')();
     var Utils = require('./utils.js');
     var defaults  = require('./defaults.json');
     
@@ -17,6 +18,7 @@ module.exports = function() {
         this.box = full_config.box.map(x => new Box(x, this));
         this.species = full_config.particle.map((x, index) => new Species(x, index, this));
         this.particle = this.species.map(spec => spec.create_particles());
+        this.potential = new Potential(full_config.potential, this);
       
         return this;
     };
