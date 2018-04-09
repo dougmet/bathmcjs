@@ -2,10 +2,10 @@
 
 module.exports = function() {
     
-    var Utils = require('./utils.js');
-    var defaults  = require('./defaults.json');
+    const Utils = require('./utils.js');
+    const defaults  = require('./defaults.json');
 
-	var Box = function(config, bath) {
+	let Box = function(config, bath) {
 
         this.bath = bath;
         this.config = Utils.merge_objects(defaults.box, config);
@@ -28,7 +28,7 @@ module.exports = function() {
 
         PBCpos: function(posvec) {
             // For position vectors this applies the periodic boundary conditions
-            for(var k=0;k<posvec.length;k++) {
+            for(let k=0;k<posvec.length;k++) {
                 if (!this.wall[k]) { // a wall kills PBCs
                     if (posvec[k] >= this.L[k])
                         posvec[k] -= this.L[k];
@@ -41,8 +41,8 @@ module.exports = function() {
         
         PBCsubtract(vec, plus, minus) {
             // Same as above but return the magnitude squared
-            var r2=0;
-            for (var k=0;k<vec.length;k++) {
+            let r2=0;
+            for (let k=0;k<vec.length;k++) {
                 vec[k] = plus[k] - minus[k];
                 if (!wall[k]) { // a wall kills PBCs
                     if (vec[k] > L[k]/2)
@@ -52,7 +52,7 @@ module.exports = function() {
                 }
             }
             
-            for (k=0;k<vec.length;k++)
+            for (let k=0;k<vec.length;k++)
                 r2 += vec[k]*vec[k];
             
             return r2;

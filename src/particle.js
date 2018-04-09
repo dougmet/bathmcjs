@@ -2,19 +2,19 @@
 
 module.exports = function() {
   
-	var Utils = require('./utils.js');
+	const Utils = require('./utils.js');
 
-	var Particle = function(pos_part, config, bath) {
+	const Particle = function(pos_part, config, bath) {
 		
 		this.species = Utils.dc(config.species);
 		
-		var zero_vec = Array(bath.DIM).fill(0.0);
+		const zero_vec = Array(bath.DIM).fill(0.0);
 
 		this.r = zero_vec.slice();
 
 		// Create the particle axes with unit vectors along box axes
 		this.n = Utils.range(config.Naxes).map(x => zero_vec.slice());
-		for (var i =0; i<this.n.length; i++) {
+		for (let i =0; i<this.n.length; i++) {
 			this.n[i][i % bath.DIM] = 1;
 		}
 		

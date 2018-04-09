@@ -2,10 +2,10 @@
 
 module.exports = function() {
     
-    var Utils = require('./utils.js');
-    var defaults  = require('./defaults.json');
+    const Utils = require('./utils.js');
+    const defaults  = require('./defaults.json');
 
-	var HS = function(config, potential) {
+	const HS = function(config, potential) {
 
         this.potential = potential;
         this.config = Utils.dc(config);

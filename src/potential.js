@@ -2,17 +2,17 @@
 
 module.exports = function() {
   
-    var Utils = require('./utils.js');
-    var Vec = require('./vector_operations.js');
+    const Utils = require('./utils.js');
+    const Vec = require('./vector_operations.js');
 
-	var Potential = function(config, bath) {
+	const Potential = function(config, bath) {
         
         this.bath = bath;
         this.DIM = bath.DIM;
         this.overlap = false;
         
         // Create a 2D array to hold the potentials
-        var all_spec = Utils.range(bath.species.length);
+        const all_spec = Utils.range(bath.species.length);
         this.pot = all_spec.map(function() {return all_spec});
         
 
@@ -22,12 +22,12 @@ module.exports = function() {
     Potential.prototype = {
         calc_potential: function(p1, p2) {
             // Select the box we're in
-            var box = p1.box;
-            var dr = Array(this.DIM);	// the vector from p1 to p2
+            let box = p1.box;
+            let dr = Array(this.DIM);	// the vector from p1 to p2
             s1 = p1.species;
             s2 = p2.species;
             
-            var r2 = box.PBCsubtract(dr, p2.r, p1.r); // vec from p1->p2
+            let r2 = box.PBCsubtract(dr, p2.r, p1.r); // vec from p1->p2
             this.overlap=false;
             
             if (r2 < this.pot[s1][s2].rcut2) {

@@ -2,7 +2,7 @@
  * @namespace Bath
  */
 
-var Bath = require('../src/Bath.js')();
+const Bath = require('../src/Bath.js')();
 
 module.exports = Bath;
 if (typeof window !== 'undefined') {

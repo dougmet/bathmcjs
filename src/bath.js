@@ -2,14 +2,14 @@
 
 module.exports = function() {
     
-    var Box = require('./box.js')();
-    var Species = require('./species.js')();
-    var Potential = require('./potential.js')();
-    var Utils = require('./utils.js');
-    var defaults  = require('./defaults.json');
+    const Box = require('./box.js')();
+    const Species = require('./species.js')();
+    const Potential = require('./potential.js')();
+    const Utils = require('./utils.js');
+    const defaults  = require('./defaults.json');
     
     // Occupy the global variable of Bath, and create a simple base class
-    var Bath = function(full_config) {
+    const Bath = function(full_config) {
       
         // Start with defaults and overwrite with config
         this.config = Utils.merge_objects(defaults.bath, full_config.bath);

@@ -2,11 +2,11 @@
 
 module.exports = function() {
     
-    var Utils = require('./utils.js');
-    var Particle = require('./particle.js')();
-    var defaults  = require('./defaults.json');
+    const Utils = require('./utils.js');
+    const Particle = require('./particle.js')();
+    const defaults  = require('./defaults.json');
 
-	var Species = function(config, index, bath) {
+	const Species = function(config, index, bath) {
 
         this.bath = bath;
         this.config = Utils.merge_objects(defaults.particle, config);
@@ -37,7 +37,7 @@ module.exports = function() {
             "cell_group": this.cell_group})
         },
         create_particles: function() {
-            var particles = Utils.range(this.N).
+            let particles = Utils.range(this.N).
                 map(x => new Particle(x, this.config, this.bath))
             return particles;
         }
