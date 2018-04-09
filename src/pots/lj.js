@@ -5,7 +5,7 @@ module.exports = function() {
     const Utils = require('../utils.js');
     const defaults  = require('../defaults.json');
 
-	const HS = function(config, potential) {
+	const LJ = function(config, potential) {
 
         this.potential = potential;
         this.config = Utils.dc(config);
@@ -15,18 +15,15 @@ module.exports = function() {
 
         this.sigma = this.rcut;
         this.sigma2 = this.rcut2;
+        
+        this.printme();
 
 		return this;
     };
 
-    HS.prototype = {
-        printme: function() {console.log("HS Potential"); console.log(this)},
-        pair_pot: function(r2, dr, p1, p2)) {
-            if (r2 < this.rcut2) {
-                this.potential.overlap = false;
-            }
-        }
+    LJ.prototype = {
+        printme: function() {console.log("LJ Potential"); console.log(this)}
     }
 
-	return HS;
+	return LJ;
 }

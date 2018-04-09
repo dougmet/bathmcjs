@@ -1,5 +1,10 @@
 'use strict';
 
+const pots = {
+    'HS': require('./pots/hs.js')(),
+    'LJ': require('./pots/lj.js')()
+}
+
 module.exports = function() {
   
     const Utils = require('./utils.js');
@@ -11,15 +16,31 @@ module.exports = function() {
         this.DIM = bath.DIM;
         this.overlap = false;
         
-        // Create a 2D array to hold the potentials
-        const all_spec = Utils.range(bath.species.length);
-        this.pot = all_spec.map(function() {return all_spec});
-        
+        // Read each potential into a flat, 1D array.
+        const flat_pots = config.map(conf => this.make_potential(conf));
 
+        // Create a 2D array to hold the potentials
+        const Nspec = bath.species.length;
+        this.pot = Array(Nspec).fill(new Array(Nspec));
+
+        // Now assign each potential to a location in the 2D array
+        flat_pots.forEach(one_pot => {
+            let s1 = one_pot.config.species_1;
+            let s2 = one_pot.config.species_2;
+            this.pot[s1][s2] = this.pot[s2][s1] = one_pot;
+        });
+
+        // Probably should check they're all defined.
+        console.log(this);
+        
 		return this;
 	};
 
     Potential.prototype = {
+        make_potential: function(conf) {
+            return new pots[conf.type](conf, this);
+        },
+
         calc_potential: function(p1, p2) {
             // Select the box we're in
             let box = p1.box;
@@ -33,14 +54,13 @@ module.exports = function() {
             if (r2 < this.pot[s1][s2].rcut2) {
                 // The general potential call (send in overlap as a reference)
                 // JS TODO - may need to just pass in this instead
-                return(this.pot[s1][s2].pair_pot(this.overlap, r2, dr, p1, p2));
+                return(this.pot[s1][s2].pair_pot(r2, dr, p1, p2));
             }
             else {
                 // Outside the cutoff, no interaction
                 return(0);
             }
         }
-
     }
 
 	return Potential;
