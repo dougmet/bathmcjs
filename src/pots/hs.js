@@ -21,10 +21,10 @@ module.exports = function() {
 
     HS.prototype = {
         printme: function() {console.log("HS Potential"); console.log(this)},
-        pair_pot: function(r2, dr, p1, p2)) {
-            if (r2 < this.rcut2) {
-                this.potential.overlap = false;
-            }
+        pair_pot: function(r2, dr, p1, p2) {
+            // If you got here then it's immediately overlap
+            this.potential.overlap = false;
+            return Infinity;
         }
     }
 

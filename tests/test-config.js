@@ -13,4 +13,4 @@ config = require('./test-config.json');
 
 myBath = new Bath(config);
 
-//console.log(myBath.potential);
+console.log(myBath.potential);

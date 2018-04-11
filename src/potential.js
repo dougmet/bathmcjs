@@ -52,8 +52,7 @@ module.exports = function() {
             this.overlap=false;
             
             if (r2 < this.pot[s1][s2].rcut2) {
-                // The general potential call (send in overlap as a reference)
-                // JS TODO - may need to just pass in this instead
+                // all potential's must have rcut2 and pair_pot
                 return(this.pot[s1][s2].pair_pot(r2, dr, p1, p2));
             }
             else {

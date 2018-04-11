@@ -15,6 +15,9 @@ module.exports = function() {
 
         this.sigma = this.rcut;
         this.sigma2 = this.rcut2;
+
+        this.eps = Utils.dc(config.eps);
+        this.eps4 = Math.pow(this.eps, 4);
         
         this.printme();
 
@@ -22,7 +25,11 @@ module.exports = function() {
     };
 
     LJ.prototype = {
-        printme: function() {console.log("LJ Potential"); console.log(this)}
+        printme: function() {console.log("LJ Potential"); console.log(this)},
+        pair_pot: function(r2, dr, p1, p2) {
+            let sigr6 = Math.pow(this.sigma2/r2, 3);
+            return (this.eps4*sigr6*(sigr6 - 1.0));
+        }
     }
 
 	return LJ;

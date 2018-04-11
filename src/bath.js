@@ -15,11 +15,15 @@ module.exports = function() {
         this.config = Utils.merge_objects(defaults.bath, full_config.bath);
         this.DIM = Utils.dc(this.config.DIM);
         this.T = Utils.dc(this.config.T);
-        this.box = full_config.box.map(x => new Box(x, this));
+
+        // Setup the particles and interactions first
         this.species = full_config.particle.map((x, index) => new Species(x, index, this));
         this.particle = this.species.map(spec => spec.create_particles());
         this.potential = new Potential(full_config.potential, this);
-      
+
+        // Now the boxes and cells
+        this.box = full_config.box.map(x => new Box(x, this));
+
         return this;
     };
     
